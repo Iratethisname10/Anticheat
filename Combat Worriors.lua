@@ -1,7 +1,6 @@
 local ReplicatedStorage = cloneref(game:GetService("ReplicatedStorage"))
 
 local main = require(ReplicatedStorage.Framework.Nevermore)
-local ac
 
 local setidentity = set_thread_identity or setidentity or setthreadidentity or function() end
 
@@ -25,8 +24,6 @@ local get = function(thing)
 	end
 end
 
-ac = get("AntiCheatHandlerClient")
-
 local old
 
 local hook = function(self, name, ...) if name == 'BAC' then return end end
@@ -35,4 +32,4 @@ old = hookfunction(rawget(Network, 'FireServer'), function(...)
 	return hook(...)
 end)
 
-hookfunction(ac.punish, function() end)
+hookfunction(get("AntiCheatHandlerClient").punish, function() end)
