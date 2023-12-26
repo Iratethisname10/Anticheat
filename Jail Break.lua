@@ -8,8 +8,6 @@ for _, v in next, getgc(true) do
 	end
 end
 
-repeat task.wait() until network ~= nil
-
 local old = getupvalue(network.FireServer, 1)
 local bypassed = false
 
