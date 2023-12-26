@@ -14,7 +14,7 @@ local bypassed = false
 setupvalue(network.FireServer, 1, function(fireId, ...)
 	local args = {...}
 
-	if #args == 2 and args[2] == false and not antiCheatBypassed then
+	if #args == 2 and args[2] == false and not bypassed then
 		bypassed = true
 		return
 	end
